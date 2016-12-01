@@ -39,13 +39,15 @@ public class FlashCards{
     do{
       index = (int) (Math.random()*qList.size());
       card = qList.get(index);
-      System.out.println(card.question);
+      System.out.println("Q:" + card.question);
       sc.nextLine();
-      System.out.println(card.answer);
+      System.out.println("A:" + card.answer);
       command = sc.nextLine();
       if(command.equals("REMOVE"))
          qList.remove(index);
-    }while(!(sc.nextLine().equals("STOP")));
+      else if(command.equals("LIST"))
+         System.out.println(qList);
+    }while(!(command.equals("STOP")));
   }
   
 }
