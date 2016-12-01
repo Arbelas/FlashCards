@@ -33,12 +33,21 @@ public class FlashCards{
   public static void quiz(ArrayList<FlashCard> qList){
     Scanner sc = new Scanner(System.in);
     FlashCard card;
+    int index;
+    String command;
+    
     do{
-      card = qList.get((int) (Math.random()*qList.size()));
+      index = (int) (Math.random()*qList.size());
+      card = qList.get(index);
       System.out.println("Q: " + card.question);
       sc.nextLine();
       System.out.println("A: " + card.answer);
-    }while(!(command.equals("STOP")));
+      command = sc.nextLine();
+      if(command.equals("REMOVE"))
+         qList.remove(index);
+      else if(command.equals("LIST"))
+         System.out.println(qList);
+    }while(!(command.equals("STOP") && qList.size() > 0));
   }
   
 }
