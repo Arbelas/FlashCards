@@ -38,7 +38,7 @@ public class FlashCards{
       System.out.println(card.question);
       sc.nextLine();
       System.out.println(card.answer);
-    }while(!(sc.nextLine().equals("STOP")));
+    }while(!(command.equals("STOP")));
   }
   
 }
