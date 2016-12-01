@@ -10,24 +10,24 @@ public class FlashCards{
   }
   
   public static ArrayList<FlashCard> loadCards(){
-    File file = new File("FlashCards.txt");
-    ArrayList qList = new ArrayList<FlashCard>();
-    
     try{
+      FileInputStream file = new FileInputStream("./FlashCards.txt");   
+      ArrayList qList = new ArrayList<FlashCard>();
+      
       Scanner sc = new Scanner(file);
-
-        while (sc.hasNextLine()) {
-            qList.add(new FlashCard(sc.nextLine(),sc.nextLine()));
-        }
-        
-        sc.close();
-     } 
-    catch (FileNotFoundException e) {
-        e.printStackTrace();
-        return null;
+      
+      while (sc.hasNextLine()) {
+        qList.add(new FlashCard(sc.nextLine(),sc.nextLine()));
+      }
+      
+      sc.close();
+      
+      return qList;
+      
+    }catch(IOException e){
+      e.printStackTrace();
+      return null;
     }
-    
-    return qList;
   }
   
   public static void quiz(ArrayList<FlashCard> qList){
@@ -40,5 +40,5 @@ public class FlashCards{
       System.out.println(card.answer);
     }while(!(sc.nextLine().equals("STOP")));
   }
-
+  
 }
