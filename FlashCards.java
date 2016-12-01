@@ -39,9 +39,9 @@ public class FlashCards{
     do{
       index = (int) (Math.random()*qList.size());
       card = qList.get(index);
-      System.out.println("Q:" + card.question);
+      System.out.println("Q: " + card.question);
       sc.nextLine();
-      System.out.println("A:" + card.answer);
+      System.out.println("A: " + card.answer);
       command = sc.nextLine();
       if(command.equals("REMOVE"))
          qList.remove(index);
