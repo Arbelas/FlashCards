@@ -35,9 +35,9 @@ public class FlashCards{
     FlashCard card;
     do{
       card = qList.get((int) (Math.random()*qList.size()));
-      System.out.println(card.question);
+      System.out.println("Q: " + card.question);
       sc.nextLine();
-      System.out.println(card.answer);
+      System.out.println("A: "card.answer);
     }while(!(command.equals("STOP")));
   }
   
